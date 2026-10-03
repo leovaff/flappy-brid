@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://fyxlxdmh1mkv"]
+
+[ext_resource type="PackedScene" uid="uid://bfq88wbqx3r72" path="res://scene/player.tscn" id="1_itxqv"]
+[ext_resource type="Script" uid="uid://lqxtdvomcbu8" path="res://script/spawner.gd" id="2_v0l8b"]
+
+[node name="Main" type="Node2D" unique_id=1786478504]
+
+[node name="Player" parent="." unique_id=216444727 instance=ExtResource("1_itxqv")]
+position = Vector2(87, 321)
+
+[node name="Spawner" type="Marker2D" parent="." unique_id=1618483592]
+position = Vector2(1199, 318)
+script = ExtResource("2_v0l8b")
+
+[node name="Timer" type="Timer" parent="Spawner" unique_id=328309497]
+autostart = true
+
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

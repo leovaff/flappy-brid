@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bfq88wbqx3r72"]
+
+[ext_resource type="Script" uid="uid://b7wr6lyaedhir" path="res://script/player.gd" id="1_hjaqi"]
+[ext_resource type="Texture2D" uid="uid://bff6us8i2u5k5" path="res://icon.svg" id="1_xo3ru"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ajdik"]
+radius = 33.0
+
+[node name="Player" type="CharacterBody2D" unique_id=216444727]
+script = ExtResource("1_hjaqi")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1791847831]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_xo3ru")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=245262762]
+shape = SubResource("CircleShape2D_ajdik")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=50514439]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]
